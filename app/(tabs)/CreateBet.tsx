@@ -1,27 +1,32 @@
-import { StyleSheet } from "react-native";
+import { Layout, ViewPager, Text, ProgressBar } from "@ui-kitten/components";
+import { useState } from "react";
+import { SafeAreaView, StyleSheet } from "react-native";
 
-import EditScreenInfo from "../../components/EditScreenInfo";
-import { Text, View } from "../../components/Themed";
+const totalSteps = 2;
 
 export default function CreateBet() {
+  const [step, setStep] = useState(0);
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Create Bet</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <EditScreenInfo path="app/(tabs)/CreateBet.tsx" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Layout>
+        <ProgressBar progress={step / totalSteps} size="medium" />
+        <ViewPager selectedIndex={step} onSelect={(index) => setStep(index)}>
+          <Layout style={styles.step} level="2">
+            <Text category="h5">Hello</Text>
+          </Layout>
+          <Layout style={styles.step} level="2">
+            <Text category="h5">World</Text>
+          </Layout>
+        </ViewPager>
+      </Layout>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
   title: {
     fontSize: 20,
@@ -31,5 +36,10 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     height: 1,
     width: "80%",
+  },
+  step: {
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
