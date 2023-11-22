@@ -44,6 +44,7 @@
   "color-danger-700": "#B7426C",
   "color-danger-800": "#932A5A",
   "color-danger-900": "#7A194E",
+  "text-basic-color": "#000",
   "color-basic-100": "#000",
   "color-basic-200": "#FFFFFF",
   "color-basic-300": "#FFFFFF",
