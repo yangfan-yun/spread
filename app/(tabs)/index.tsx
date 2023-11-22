@@ -3,17 +3,27 @@ import { StyleSheet } from "react-native";
 import EditScreenInfo from "../../components/EditScreenInfo";
 import { Text, View } from "../../components/Themed";
 
+import React from 'react';
+import { Tab, TabBar } from '@ui-kitten/components';
+
+export const TabBarSimpleUsageShowcase = (): React.ReactElement => {
+
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+
+  return (
+    <TabBar
+      selectedIndex={selectedIndex}
+      onSelect={index => setSelectedIndex(index)}
+    >
+      <Tab title="Bets I'm in" />
+      <Tab title="Bets I'm judging" />
+    </TabBar>
+  );
+};
+
 export default function BetsBets() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Bets</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
-    </View>
+      <TabBarSimpleUsageShowcase />
   );
 }
 
