@@ -101,10 +101,10 @@
 // });
 
 import React from 'react';
-import { SafeAreaView, StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet, View, ViewProps } from "react-native";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import EditScreenInfo from "../../components/EditScreenInfo";
-import { Layout, Text, useTheme } from '@ui-kitten/components';
+import { Card, Button, Layout, Text, useTheme, Divider } from '@ui-kitten/components';
 
 import { Ionicons } from '@expo/vector-icons'; 
 import { Octicons } from '@expo/vector-icons';
@@ -112,8 +112,13 @@ import { Octicons } from '@expo/vector-icons';
 const MyTab = createMaterialTopTabNavigator();
 
 const BetsCreated = () => (
-  <Layout style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text category='h1'>Bets I created</Text>
+  <Layout style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'flex-start' , paddingTop: 10 , paddingLeft: 10, paddingRight: 10 }}>
+    <Text category='h2'>Awaiting Joiner</Text>
+    <Text category='h2'>Awaiting Judge</Text>
+
+    <Text category='h2'>Ongoing</Text>
+
+    <Text category='h2'>Completed</Text>
   </Layout>
 );
 
@@ -135,8 +140,9 @@ function MyTabs() {
   const screenOptions = {
     tabBarActiveTintColor: theme["color-primary-500"],
     tabBarInactiveTintColor: theme["color-basic-700"],
-    tabBarLabelStyle: { fontSize: 14 },
+    tabBarLabelStyle: { fontSize: 12 },
     tabBarIndicatorStyle: { backgroundColor: theme["color-primary-500"] },
+    onAnimatedValueUpdate: null,
   };
 
   return (
@@ -207,5 +213,16 @@ const styles = StyleSheet.create({
     borderRadius: 37.5,
     width: 75,
     height: 75,
+  },
+  card: {
+    flex: 1,
+    margin: 2,
+  },
+  footerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
+  footerControl: {
+    marginHorizontal: 2,
   },
 });
