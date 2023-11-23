@@ -1,4 +1,10 @@
-const tintColorLight = "#105a37";
+import {
+  useTheme,
+} from "@ui-kitten/components";
+
+const theme = useTheme();
+
+const tintColorLight = "#a6cc70";
 const tintColorDark = "#a6cc70";
 
 export default {
